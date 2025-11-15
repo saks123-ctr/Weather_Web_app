@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <title>WEATHER APP</title>
+</head>
+<!--
+File: C:/Users/Dell/Pictures/Screenshots/WEB_DEVELOPMENT/weather_api/weather.html
+
+Purpose:
+    - Main HTML page for the Weather API demo/app.
+    - Provides a simple UI to enter a location and display current weather information fetched from an external weather API.
+
+Contents/Structure (high level):
+    - Head section: metadata, linked stylesheets and any external libraries.
+    - Body section: search/input controls, submit button, results/display container, and script references.
+    - Inline or external script: fetches weather data, updates the DOM, and handles loading/error states.
+
+Usage:
+    - Place this file in the project directory alongside referenced assets (CSS/JS).
+    - Add a valid API key in the designated script/config area before making API calls.
+    - For development, serve via a local web server (e.g., `python -m http.server`) to avoid CORS/file protocol issues; opening directly may limit some APIs.
+
+Security & Deployment Notes:
+    - Do not embed sensitive API keys in client-side code for production. Proxy requests through a server-side component or use environment/config management.
+    - Validate and sanitize user input before using it in API requests.
+    - Implement error handling and rate-limit/backoff strategies for robust behavior.
+
+Testing:
+    - Test with valid/invalid locations to verify UI and error handling.
+    - Test network failures and slow responses to ensure loading indicators and timeouts behave correctly.
+
+Author/Metadata:
+    - Generated documentation block for the file location above.
+-->
+<body>
+    <div class="container">
+        <div class="weather-card">
+            <h1 style="color:green;">
+                Saksham's project
+
+            </h1>
+            <h3>
+                weather app
+            </h3>
+            <input type="text" id="city-input" placeholder="enter city name">
+            <button id="city-input-btn">Get Weather</button>
+            <div id="weather-info" class="animate__animated animate__fadein">
+                <h3 id="city-name"></h3>
+                <p id ="date"></p>
+                <img id="weather-icon" src="" alt="weather icon">
+                <p id="temperature"></p>
+                <p id="description"></p>
+                <p id="wind-speed"></p>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        $('#city-input-btn').on('click',function(){let cityName=$('#city-input').val();weatherFn(cityName);});
+    </script>
+</body>
+</html>
